@@ -131,14 +131,14 @@
                     <div class="row-nw stat-row align-center">
                         <!-- <a class="spent-concept hide"><span class="fa fa-ban" data-habilidad={{habilidad}}></span></a> -->
                         {{#iff key "contains" "adicional"}}
-                        <img class="habilidad-edit" src="./systems/hitos/assets/abilities/{{key}}.png" height="24px"
+                        <img class="habilidad-edit" src="./systems/hitos-lcdt/assets/abilities/{{key}}.png" height="24px"
                             width="24px" />
                         <div class="label-body col col-xs-3 rollable-check" data-habilidad="{{key}}"
                             data-edit="system.habilidades.{{key}}.label" contenteditable>
                             {{{habilidad.label}}}
                         </div>
                         {{else}}
-                        <img src="./systems/hitos/assets/abilities/{{key}}.png" height="24px" width="24px" />
+                        <img src="./systems/hitos-lcdt/assets/abilities/{{key}}.png" height="24px" width="24px" />
                         <span class="label-body col col-xs-3 rollable-check"
                             data-habilidad="{{key}}">{{localize habilidad.label}}</span>
                         {{/iff}}
