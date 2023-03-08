@@ -1,7 +1,7 @@
 {
-  "name": "hitos",
-  "title": "Hitos",
-  "description": "Implementación del sistema Hitos de Nosolorol para Foundry VTT.",
+  "name": "hitos-lcdt",
+  "title": "Hitos Las Corrientes del Tiempo",
+  "description": "Implementación del sistema Hitos de Nosolorol para Foundry VTT con la ambientacion de Las Corrientes del Tiempo",
   "version": "1.1.5",
   "minimumCoreVersion": "10.260",
   "compatibleCoreVersion": "10.291",
