@@ -11,7 +11,7 @@ export class HitosActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["hitos", "sheet", "actor"],
-      template: "systems/hitos/templates/actor/actor-sheet.html",
+      template: "systems/hitos-lcdt/templates/actor/actor-sheet.html",
       width: 740,
       height: 700,
       tabs: [{
@@ -24,7 +24,7 @@ export class HitosActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    const path = "systems/hitos/templates/actor";
+    const path = "systems/hitos-lcdt/templates/actor";
     // Return a single sheet for all item types.
     return `${path}/${this.actor.type}-sheet.html`;
     // Alternatively, you could use the following return statement to do a
@@ -54,7 +54,7 @@ export class HitosActorSheet extends ActorSheet {
     }
     this._prepareCharacterItems(sheetData);
 
-    
+
     let enrichedFields = [
       "system.biografia",
       "system.extras",
@@ -94,7 +94,7 @@ export class HitosActorSheet extends ActorSheet {
     // Increment item quantity
     html.find(".item-quantity-plus").click((ev) => {
       ev.preventDefault();
-      let item = this.actor.items.get(ev.currentTarget.dataset.itemid);    
+      let item = this.actor.items.get(ev.currentTarget.dataset.itemid);
       console.log(item);
       event.preventDefault();
       item.update({ "system.quantity":  item.system.quantity += 1 });
@@ -103,7 +103,7 @@ export class HitosActorSheet extends ActorSheet {
     // Decrease item quantity
     html.find(".item-quantity-minus").click((ev) => {
       ev.preventDefault();
-      let item = this.actor.items.get(ev.currentTarget.dataset.itemid);    
+      let item = this.actor.items.get(ev.currentTarget.dataset.itemid);
       console.log(item);
       event.preventDefault();
       item.update({ "system.quantity":  item.system.quantity -= 1 });
@@ -132,13 +132,13 @@ export class HitosActorSheet extends ActorSheet {
 
     html.find(".rollable-attack").click((ev) => {
       ev.preventDefault();
-      let weapon = this.actor.items.get(ev.currentTarget.dataset.itemid).system;    
+      let weapon = this.actor.items.get(ev.currentTarget.dataset.itemid).system;
       _onAttackRoll(this.actor,weapon);
     });
 
     html.find(".rollable-status").click((ev) => {
       ev.preventDefault();
-      let status = ev.currentTarget.dataset.status;  
+      let status = ev.currentTarget.dataset.status;
       _onStatusRoll(this.actor,status);
     });
 
@@ -154,11 +154,11 @@ export class HitosActorSheet extends ActorSheet {
       else {
         element.attr('contenteditable','false').addClass('rollable-check');
       }
-    }); 
+    });
 
     html.find(".hito-disable").contextmenu((ev) => {
       $(ev.currentTarget).toggleClass("input-header-disabled");
-    });    
+    });
 
 
     html.find(".item-toggle").click(ev => {

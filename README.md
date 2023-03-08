@@ -35,7 +35,7 @@ En futuras versiones, se añadirán:
 # Información de interés
 Canal del sistema en el servidor de Foundry en español de Discord: [Invitación al servidor](https://discord.com/invite/BpAn2DE3cq)
 
-Página del sistema en Foundry Hub: [Foundry Hub. Hitos](foundryvtt-hub.com/package/hitos/)
+Página del sistema en Foundry Hub: [Foundry Hub. Hitos](foundryvtt-hub.com/package/hitos-lcdt/)
 
 Twitter: [Elfonochasis](https://twitter.com/Elfonochasis)
 

@@ -4,7 +4,7 @@ import { hitos } from './config.js';
 
 
 export async function _onDramaRoll(actor){
-    let template = "systems/hitos/templates/chat/roll-dialog.html";
+    let template = "systems/hitos-lcdt/templates/chat/roll-dialog.html";
     let dialogData = {
         formula: "",
         data: actor.system,
@@ -18,7 +18,7 @@ export async function _onDramaRoll(actor){
 export async function _onInitRoll(actor) {
     let values = _rolld10(actor.system.iniciativa);
     let resistenciaMod = Number(actor.system.resistencia.mod);
-    let template = "systems/hitos/templates/chat/chat-roll.html";
+    let template = "systems/hitos-lcdt/templates/chat/chat-roll.html";
 
     let dialogData = {
         title: game.i18n.localize("Hitos.Iniciativa"),
@@ -65,7 +65,7 @@ export async function _onAttackRoll(actor, weapon) {
     //damage.terms[0] = new NumericTerm({number: Array.from(damageBase.term).map((value) => lookup[value]).reduce((sum, value) => sum += value)});
     let damageTotal = (Number(damageBase) + weaponKindBonus) * Number(criticalMod);
 
-    let template = "systems/hitos/templates/chat/chat-roll.html";
+    let template = "systems/hitos-lcdt/templates/chat/chat-roll.html";
 
     let dialogData = {
         title: game.i18n.localize("Hitos.Ataque") + ". " + game.i18n.localize(hitos.weaponKind[weapon.kind]),
@@ -92,7 +92,7 @@ export async function _onAttackRoll(actor, weapon) {
 export async function _onStatusRoll(actor, status) {
     let values = _rolld10(getProperty(actor.system, `${status}.value`));
     let statusLabel = getProperty(actor.system, `${status}.label`)
-    let template = "systems/hitos/templates/chat/chat-roll.html";
+    let template = "systems/hitos-lcdt/templates/chat/chat-roll.html";
 
     let dialogData = {
         title: game.i18n.localize(statusLabel),
@@ -117,7 +117,7 @@ export async function _onStatusRoll(actor, status) {
 export async function _onCheckRoll(actor, valor, habilidadNombre) {
     console.log(valor, habilidadNombre)
     let resistenciaMod = Number(actor.system.resistencia.mod);
-    let template = "systems/hitos/templates/chat/roll-dialog.html";
+    let template = "systems/hitos-lcdt/templates/chat/roll-dialog.html";
     let dialogData = {
         formula: "",
         data: actor.system,
@@ -139,7 +139,7 @@ export async function _onCheckRoll(actor, valor, habilidadNombre) {
                             Number(html[0].querySelectorAll(".bonus")[0].value) +
                             resistenciaMod +
                             values[2];
-                        let template = "systems/hitos/templates/chat/chat-roll.html";
+                        let template = "systems/hitos-lcdt/templates/chat/chat-roll.html";
                         dialogData = {
                             title: game.i18n.localize(habilidadNombre),
                             total: total,

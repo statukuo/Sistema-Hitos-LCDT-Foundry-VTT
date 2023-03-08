@@ -23,7 +23,7 @@ export class HitosItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/hitos/templates/item";
+    const path = "systems/hitos-lcdt/templates/item";
     // Return a single sheet for all item types.
     return `${path}/${this.item.type}-sheet.html`;
     // Alternatively, you could use the following return statement to do a

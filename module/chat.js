@@ -54,7 +54,7 @@ async function onDramaRoll(event){
     let actor = game.actors.get(event.currentTarget.dataset.actor);
     let weaponDamage = event.currentTarget.dataset.weapondamage;
     let weaponKindBonus = event.currentTarget.dataset.weaponkindbonus;
-    let template = "systems/hitos/templates/chat/roll-drama.html";
+    let template = "systems/hitos-lcdt/templates/chat/roll-drama.html";
     let dialogData = {
         formula: "",
         data: actor.system,
@@ -85,7 +85,7 @@ async function onDramaRoll(event){
                             result = Math.min(...negDuplicate(dicesNew)) + mods
                         }
                         let damage = calculateDamage(weaponDamage,weaponKindBonus, dicesNew.sort((a, b) => a - b))
-                        let template = "systems/hitos/templates/chat/chat-drama.html";
+                        let template = "systems/hitos-lcdt/templates/chat/chat-drama.html";
                         dialogData = {
                             title: game.i18n.localize("Drama"),
                             total: result,

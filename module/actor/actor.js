@@ -10,16 +10,16 @@ export class HitosActor extends Actor {
     let img = CONST.DEFAULT_TOKEN;
     switch (this.type) {
       case "character":
-        img = "/systems/hitos/assets/icons/character.svg";
+        img = "/systems/hitos-lcdt/assets/icons/character.svg";
         break;
       case "npc":
-        img = "/systems/hitos/assets/icons/npc.svg";
+        img = "/systems/hitos-lcdt/assets/icons/npc.svg";
         break;
       case "organization":
-        img = "/systems/hitos/assets/icons/organization.svg";
+        img = "/systems/hitos-lcdt/assets/icons/organization.svg";
         break;
       case "vehicle":
-        img = "/systems/hitos/assets/icons/vehicle.svg";
+        img = "/systems/hitos-lcdt/assets/icons/vehicle.svg";
         break;
     }
     if (this.img === "icons/svg/mystery-man.svg") this.img = img;
