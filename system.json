@@ -35,6 +35,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/statukuo/Sistema-Hitos-Las-Corrientes-Del-Tiempo-Foundry-VTT",
   "manifest": "https://raw.githubusercontent.com/statukuo/Sistema-Hitos-Las-Corrientes-Del-Tiempo-Foundry-VTT/main/system.json",
-  "download": "https://raw.githubusercontent.com/statukuo/Sistema-Hitos-Las-Corrientes-Del-Tiempo-Foundry-VTT/archive/refs/tags/v1.1.5.zip",
+  "download": "https://github.com/statukuo/Sistema-Hitos-Las-Corrientes-Del-Tiempo-Foundry-VTT/archive/refs/tags/v1.1.5.zip",
   "license": "LICENSE.txt"
 }
