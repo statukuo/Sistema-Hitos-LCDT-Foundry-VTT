@@ -51,7 +51,6 @@ export class HitosActor extends Actor {
       Number(Math.floor(data.atributos.int.value / 2));
 
     data.resistencia.max = Number(data.aguante.value) * 3;
-    data.estabilidadMental.max = Number(data.entereza.value) * 3;
 
     var resistencia = Number(data.resistencia.value);
     var resistencia_Max = Number(data.aguante.value);
@@ -74,30 +73,6 @@ export class HitosActor extends Actor {
     } else {
       data.resistencia.status = game.i18n.format("Hitos.Salud.Moribundo");
       data.resistencia.mod = -5;
-    }
-
-    var estMental = Number(data.estabilidadMental.value);
-    var estMental_Max = Number(data.entereza.value);
-
-    if (estMental < estMental_Max) {
-      data.estabilidadMental.status = game.i18n.format("Hitos.Mental.Cuerdo");
-      data.estabilidadMental.mod = 0;
-    } else if (estMental_Max <= estMental && estMental < 2 * estMental_Max) {
-      data.estabilidadMental.status = game.i18n.format("Hitos.Mental.Alterado");
-      data.estabilidadMental.mod = -2;
-    } else if (
-      2 * estMental_Max <= estMental &&
-      estMental < 3 * estMental_Max
-    ) {
-      data.estabilidadMental.status = game.i18n.format(
-        "Hitos.Mental.Trastornado"
-      );
-      data.estabilidadMental.mod = -5;
-    } else {
-      data.estabilidadMental.status = game.i18n.format(
-        "Hitos.Mental.Enloquecido"
-      );
-      data.estabilidadMental.mod = -5;
     }
 
     data.iniciativa =
@@ -130,8 +105,7 @@ export class HitosActor extends Actor {
       ? Number(data.habilidades.ffisica.value)
       : Number(data.habilidades.combate.value)) +
     5 +
-    Number(data.resistencia.mod) +
-    Number(data.estabilidadMental.mod);
+    Number(data.resistencia.mod);
   data.defensa.des = Number(data.defensa.normal) - 2;
   }
 }

@@ -34,7 +34,7 @@ Hooks.once('init', async function() {
     let val = Number(data.value);
     console.log(data)
 
-    if (data.attribute === "resistencia" || data.attribute === "estabilidadMental") {
+    if (data.attribute === "resistencia") {
       val = Number(data.max - data.value);
     }
 
@@ -94,7 +94,7 @@ Hooks.once('init', async function() {
     } else {
       return opts.inverse(this);
     }
-  }); 
+  });
 
    // Register Handlebars utilities
    Handlebars.registerHelper("json", JSON.stringify);
@@ -131,7 +131,7 @@ Hooks.once('init', async function() {
        default:
          throw "Unknown operator " + operator;
      }
- 
+
      if (bool) {
        return opts.fn(this);
      } else {

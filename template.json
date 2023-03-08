@@ -54,29 +54,6 @@
           "value": ""
         }
       },
-      "cordura": {
-        "estabilidadMental": {
-          "label": "Hitos.MP",
-          "value": 0,
-          "max": 10,
-          "min": 0,
-          "consolidated": 0,
-          "status": "",
-          "mod":0,
-          "degeneracion": {
-            "value": 0,
-            "description": ""
-          }
-        },
-        "entereza": {
-          "label": "Hitos.Entereza",
-          "value": ""
-        },
-        "transtornos": {
-          "value": ""
-        }
-      },
-
       "hitos": {
         "hito1": {
           "value": "",
@@ -198,35 +175,8 @@
             "spent": false,
             "available": true
           },
-          "psiquico": {
-            "label": "Hitos.Psiquico",
-            "concept": "",
-            "value": 0,
-            "min": 0,
-            "max": 12,
-            "spent": false,
-            "available": true
-          },
-          "ocultismo": {
-            "label": "Hitos.Ocultismo",
-            "concept": "",
-            "value": 0,
-            "min": 0,
-            "max": 12,
-            "spent": false,
-            "available": true
-          },
-          "brujeria": {
-            "label": "Hitos.Brujeria",
-            "concept": "",
-            "value": 0,
-            "min": 0,
-            "max": 12,
-            "spent": false,
-            "available": true
-          },
-          "arcanas": {
-            "label": "Hitos.Arcanas",
+          "tempodinamica": {
+            "label": "Hitos.Tempodinamica",
             "concept": "",
             "value": 0,
             "min": 0,
@@ -371,7 +321,7 @@
           "max": 12,
           "spent": false
         }
-      },      
+      },
       "notas": ""
     }
   },

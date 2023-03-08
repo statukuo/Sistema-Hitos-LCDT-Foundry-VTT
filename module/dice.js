@@ -17,17 +17,16 @@ export async function _onDramaRoll(actor){
 
 export async function _onInitRoll(actor) {
     let values = _rolld10(actor.system.iniciativa);
-    let corduraMod = Number(actor.system.estabilidadMental.mod);
     let resistenciaMod = Number(actor.system.resistencia.mod);
     let template = "systems/hitos/templates/chat/chat-roll.html";
 
     let dialogData = {
         title: game.i18n.localize("Hitos.Iniciativa"),
-        total: values[2] + corduraMod + resistenciaMod,
+        total: values[2] + resistenciaMod,
         damage: null,
         dices: values[1],
         actor: actor._id,
-        mods: Number(actor.system.iniciativa) + corduraMod + resistenciaMod,
+        mods: Number(actor.system.iniciativa) + resistenciaMod,
         data: actor.system,
         config: CONFIG.hitos,
     };
@@ -35,14 +34,13 @@ export async function _onInitRoll(actor) {
     ChatMessage.create({
         content: html,
         speaker: {alias: actor.name},
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL, 
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         rollMode: game.settings.get("core", "rollMode"),
         roll: values[0]
     });
 }
 
 export async function _onAttackRoll(actor, weapon) {
-    let corduraMod = Number(actor.system.estabilidadMental.mod);
     let resistenciaMod = Number(actor.system.resistencia.mod);
 
     /* M + 1 */
@@ -52,7 +50,7 @@ export async function _onAttackRoll(actor, weapon) {
     /* 3 + 4 + 6 */
     let values = _rolld10(0);
 
-    let attack = Number(values[2]) + actor.system.atributos.ref.value + actor.system.habilidades.combate.value + resistenciaMod + corduraMod
+    let attack = Number(values[2]) + actor.system.atributos.ref.value + actor.system.habilidades.combate.value + resistenciaMod
 
     let lookup = {
         m: Number(values[1][0]),
@@ -66,7 +64,7 @@ export async function _onAttackRoll(actor, weapon) {
     let weaponKindBonus = Number(getProperty(actor.system, `danio.${weapon.kind}`))
     //damage.terms[0] = new NumericTerm({number: Array.from(damageBase.term).map((value) => lookup[value]).reduce((sum, value) => sum += value)});
     let damageTotal = (Number(damageBase) + weaponKindBonus) * Number(criticalMod);
-    
+
     let template = "systems/hitos/templates/chat/chat-roll.html";
 
     let dialogData = {
@@ -78,14 +76,14 @@ export async function _onAttackRoll(actor, weapon) {
         weaponDamage: weapon.damage,
         weaponKindBonus: weaponKindBonus,
         data: actor.system,
-        mods: actor.system.atributos.ref.value + actor.system.habilidades.combate.value + resistenciaMod + corduraMod,
-        config: CONFIG.hitos       
+        mods: actor.system.atributos.ref.value + actor.system.habilidades.combate.value + resistenciaMod,
+        config: CONFIG.hitos
     };
     let html = await renderTemplate(template, dialogData);
     ChatMessage.create({
         content: html,
         speaker: {alias: actor.name},
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL, 
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         rollMode: game.settings.get("core", "rollMode"),
         roll: values[0]
     });
@@ -110,7 +108,7 @@ export async function _onStatusRoll(actor, status) {
     ChatMessage.create({
         content: html,
         speaker: {alias: actor.name},
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL, 
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         rollMode: game.settings.get("core", "rollMode"),
         roll: values[0]
     });
@@ -118,7 +116,6 @@ export async function _onStatusRoll(actor, status) {
 
 export async function _onCheckRoll(actor, valor, habilidadNombre) {
     console.log(valor, habilidadNombre)
-    let corduraMod = Number(actor.system.estabilidadMental.mod);
     let resistenciaMod = Number(actor.system.resistencia.mod);
     let template = "systems/hitos/templates/chat/roll-dialog.html";
     let dialogData = {
@@ -140,7 +137,6 @@ export async function _onCheckRoll(actor, valor, habilidadNombre) {
                         let total =
                             Number(html[0].querySelectorAll("option:checked")[0].value) +
                             Number(html[0].querySelectorAll(".bonus")[0].value) +
-                            corduraMod +
                             resistenciaMod +
                             values[2];
                         let template = "systems/hitos/templates/chat/chat-roll.html";
@@ -151,7 +147,7 @@ export async function _onCheckRoll(actor, valor, habilidadNombre) {
                             atributo: game.i18n.localize(html[0].querySelectorAll("option:checked")[0].label),
                             dices: values[1],
                             actor: actor._id,
-                            mods: Number(valor) + Number(html[0].querySelectorAll("option:checked")[0].value) + Number(html[0].querySelectorAll(".bonus")[0].value) + resistenciaMod + corduraMod,
+                            mods: Number(valor) + Number(html[0].querySelectorAll("option:checked")[0].value) + Number(html[0].querySelectorAll(".bonus")[0].value) + resistenciaMod,
                             data: actor.system,
                             config: CONFIG.hitos,
                         };
@@ -159,7 +155,7 @@ export async function _onCheckRoll(actor, valor, habilidadNombre) {
                         ChatMessage.create({
                             content: html,
                             speaker: {alias: actor.name},
-                            type: CONST.CHAT_MESSAGE_TYPES.ROLL, 
+                            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
                             rollMode: game.settings.get("core", "rollMode"),
                             roll: values[0]
                         });
