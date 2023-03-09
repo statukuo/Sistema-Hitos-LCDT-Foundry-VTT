@@ -161,7 +161,7 @@
                         <div class="row-nw section-header col-xs-12">
                             <span class="">{{localize "Hitos.Estado"}}</span>
                         </div>
-                        <div class="row-nw grid-2col">
+                        <div class="row">
                             <div class="column-nw">
                                 <div class="grid-2col">
                                     <span class="label-body rollable-status"
@@ -173,22 +173,55 @@
                                     <span class="section-title">{{localize "Hitos.Resistencia"}}</span>
                                 </div>
                                 <div class="grid-2col">
+                                    <span class="label-body"
+                                        data-status="resistencia">{{localize "Hitos.Actual"}}</span>
                                     <input class="input-body" name="system.resistencia.value"
                                         value="{{system.resistencia.value}}" type="number" />
+                                    <span class="label-body"
+                                        data-status="resistencia">{{localize "Hitos.Consolidado"}}</span>
+                                    <input class="input-body" name="system.resistencia.consolidated"
+                                        value="{{system.resistencia.consolidated}}" type="number" />
+                                    <span class="label-body"
+                                        data-status="resistencia">{{localize "Hitos.Maximo"}}</span>
                                     <input class="input-body" name="system.resistencia.max"
                                         value="{{system.resistencia.max}}" type="number" readonly />
                                 </div>
+                                <div class="grid-2col">
+                                    <img class="health-dec health-button" src="./systems/hitos-lcdt/assets/health/minus.png" height="16px" width="16px" />
+                                    <img class="health-inc health-button" src="./systems/hitos-lcdt/assets/health/add.png" height="16px" width="16px" />
+                                </div>
+                                <div class="col col-xs-12 health">
+                                    <table>
+                                    {{#times system.resistencia.max }}
+                                        {{#iff this "%" @root.system.aguante.value}}
+                                            {{#iff this "!=" 0}}
+                                                </tr>
+                                            {{/iff}}
+                                            <tr>
+                                        {{/iff}}
+                                        <td>
+                                            {{#iff this "<" @root.system.resistencia.consolidated}}
+                                                <div class="health-full-box"></div>
+                                            {{else}}
+                                                {{#iff this "<" @root.system.resistencia.value}}
+                                                    <div class="health-crossed-box"></div>
+                                                {{else}}
+                                                    <div class="health-empty-box"></div>
+                                                {{/iff}}
+                                            {{/iff}}
+                                        </td>
+
+                                        {{#iff this "==" (math @root.system.resistencia.max "-" 1)}}
+                                            </tr>
+                                        {{/iff}}
+                                    {{/times}}
+                                    </table>
+                                </div>
+
+
+
                                 <input class="col col-xs-12 input-body" name="system.resistencia.status"
                                     value="{{system.resistencia.status}}" type="text" readonly />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="row-nw col-xs-12">
-                                <span class="section-title">{{localize "Hitos.Secuelas"}}</span>
-                            </div>
-
-                            <div class="input-header" data-edit="system.secuelas.value" contenteditable>
-                                {{{system.secuelas.value}}}
                             </div>
                         </div>
                     </div>

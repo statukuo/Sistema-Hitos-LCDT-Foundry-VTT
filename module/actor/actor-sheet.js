@@ -169,6 +169,34 @@ export class HitosActorSheet extends ActorSheet {
       this.actor._calculateRD(this.actor)
     })
 
+    html.find(".health-inc").click(ev => {
+      ev.preventDefault();
+      if ( this.actor.system.resistencia.consolidated >= this.actor.system.resistencia.max ) {
+        return;
+      }
+
+      if ( this.actor.system.resistencia.value >= this.actor.system.resistencia.max ) {
+        this.actor.update({ "system.resistencia.consolidated":  this.actor.system.resistencia.consolidated += 1 });
+        return;
+      }
+
+      this.actor.update({ "system.resistencia.value":  this.actor.system.resistencia.value += 1 });
+    })
+
+    html.find(".health-dec").click(ev => {
+      ev.preventDefault();
+      if (this.actor.system.resistencia.value <= this.actor.system.resistencia.consolidated) {
+        return;
+      }
+
+      if ( this.actor.system.resistencia.value === 0 ) {
+        this.actor.update({ "system.resistencia.consolidated":  this.actor.system.resistencia.consolidated += 1 });
+        return;
+      }
+
+      this.actor.update({ "system.resistencia.value":  this.actor.system.resistencia.value -= 1 });
+    })
+
   }
 
   /* -------------------------------------------- */

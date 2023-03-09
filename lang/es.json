@@ -85,5 +85,8 @@
   "Hitos.Salud.Incapacitado": "Incapacitado",
   "Hitos.Salud.Moribundo": "Moribundo",
   "Hitos.Cantidad": "Cantidad",
-  "Hitos.Secuelas": "Secuelas y transtornos"
+  "Hitos.Secuelas": "Secuelas y transtornos",
+  "Hitos.Actual": "Actual",
+  "Hitos.Consolidado": "Consolidado",
+  "Hitos.Maximo": "Máximo"
 }

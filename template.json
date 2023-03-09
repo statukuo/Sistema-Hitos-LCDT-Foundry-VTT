@@ -44,7 +44,7 @@
         "resistencia": {
           "label": "Hitos.HP",
           "value": 0,
-          "max": 10,
+          "max": 15,
           "min": 0,
           "consolidated": 0,
           "status": "",

@@ -46,9 +46,6 @@ export class HitosActor extends Actor {
     data.aguante.value =
       Number(data.atributos.for.value) +
       Number(Math.floor(data.atributos.vol.value / 2));
-    data.entereza.value =
-      Number(data.atributos.vol.value) +
-      Number(Math.floor(data.atributos.int.value / 2));
 
     data.resistencia.max = Number(data.aguante.value) * 3;
 

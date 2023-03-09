@@ -121,6 +121,9 @@ Hooks.once('init', async function() {
        case "!=":
          bool = a != b;
          break;
+      case "%":
+        bool = (a % b) === 0;
+        break;
        case "contains":
          if (a && b) {
            bool = a.includes(b);
